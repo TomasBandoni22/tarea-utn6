@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>tarea</title>
+</head>
+
+<body>
+    <h1>Calculadora de Medios de Transporte</h1>
+
+    <label for="distancia">Ingrese la distancia en metros:</label>
+    <input type="number" id="distancia" placeholder="Distancia en metros">
+    <button onclick="calcularMedioDeTransporte()">Calcular</button>
+
+    <p>El medio de transporte apropiado es: <span id="resultado"></span></p>
+
+    <script>
+        function determinarMedioDeTransporte(distancia) {
+            if (distancia >= 0 && distancia <= 1000) {
+                return "pie";
+            } else if (distancia > 1000 && distancia <= 10000) {
+                return "bicicleta";
+            } else if (distancia > 10000 && distancia <= 30000) {
+                return "colectivo";
+            } else if (distancia > 30000 && distancia <= 100000) {
+                return "auto";
+            } else {
+                return "avion";
+            }
+        }
+
+        function calcularMedioDeTransporte() {
+            var distanciaInput = document.getElementById("distancia");
+            var resultadoSpan = document.getElementById("resultado");
+
+            var distancia = parseFloat(distanciaInput.value);
+            var medioDeTransporte = determinarMedioDeTransporte(distancia);
+
+            resultadoSpan.textContent = medioDeTransporte;
+        }
+    </script>
+</body>
+
+</html>
